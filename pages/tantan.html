@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>探探AI精准获客系统 - AI新媒体矩阵</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .product-detail {
+            padding: 6rem 2rem 2rem;
+        }
+        
+        .product-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #FF4D4F, #FF7875);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            color: white;
+        }
+        
+        .product-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #FF4D4F;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 1rem;
+            color: #FF4D4F;
+        }
+        
+        .platform-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #FF4D4F;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(255, 77, 79, 0.2);
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            color: #FF4D4F;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        
+        .feature-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: '•';
+            color: #FF4D4F;
+            position: absolute;
+            left: 0;
+        }
+        
+        .scenarios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .scenario-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .scenario-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .scenario-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .scenario-card li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .scenario-card li::before {
+            content: '→';
+            color: #FF4D4F;
+            position: absolute;
+            left: 0;
+        }
+        
+        .target-clients {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .client-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .client-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(255, 77, 79, 0.1);
+        }
+        
+        .client-icon {
+            font-size: 2.5rem;
+            color: #FF4D4F;
+            margin-bottom: 1rem;
+        }
+        
+        .client-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .client-description {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 3rem 0;
+        }
+        
+        .chart-title {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .chart-description {
+            text-align: center;
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .chart-content {
+            height: 400px;
+        }
+        
+        .back-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(45deg, #FF4D4F, #FF7875);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 4px 15px rgba(255, 77, 79, 0.3);
+        }
+        
+        .back-button i {
+            margin-right: 0.5rem;
+        }
+
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pain-point-card {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #FF4D4F;
+        }
+        
+        .pain-point-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .pain-point-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .solution {
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #FFF1F0;
+            border-radius: 8px;
+        }
+        
+        .solution i {
+            color: #FF4D4F;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .demo-image {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .demo-screenshot {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .demo-screenshot:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-robot"></i> AI新媒体矩阵
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="product-detail">
+            <a href="../index.html" class="back-button">
+                <i class="fas fa-arrow-left"></i> 返回首页
+            </a>
+            
+            <div class="product-header">
+                <h1>探探AI精准获客系统</h1>
+                <p>智能化的探探获客工具，实现精准匹配、智能互动、数据分析等功能</p>
+            </div>
+
+            <!-- 用户痛点部分 -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-exclamation-circle"></i>
+                    用户痛点
+                </h2>
+                <div class="pain-points">
+                    <div class="pain-point-card">
+                        <h4>获客效率低</h4>
+                        <p>用户匹配不精准，互动效果差，难以实现高效获客</p>
+                        <div class="solution">
+                            <i class="fas fa-check-circle"></i>
+                            <span>AI智能匹配系统，提升匹配精准度，增强互动效果</span>
+                        </div>
+                    </div>
+                    <div class="pain-point-card">
+                        <h4>运营成本高</h4>
+                        <p>人工运营成本高，效率低下，难以实现规模化运营</p>
+                        <div class="solution">
+                            <i class="fas fa-check-circle"></i>
+                            <span>智能运营系统，降低运营成本，提升运营效率</span>
+                        </div>
+                    </div>
+                    <div class="pain-point-card">
+                        <h4>数据分析难</h4>
+                        <p>数据分散，分析困难，难以优化获客策略</p>
+                        <div class="solution">
+                            <i class="fas fa-check-circle"></i>
+                            <span>智能数据分析系统，多维度数据整合，助力决策优化</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 平台功能部分 -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-cogs"></i>
+                    平台功能
+                </h2>
+                <div class="platform-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <h3 class="feature-title">AI智能匹配</h3>
+                        <p class="feature-description">智能化的用户匹配系统，提升匹配精准度</p>
+                        <ul class="feature-list">
+                            <li>智能用户画像</li>
+                            <li>精准匹配算法</li>
+                            <li>兴趣标签分析</li>
+                            <li>行为模式识别</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 class="feature-title">智能互动系统</h3>
+                        <p class="feature-description">自动化的互动管理，提升用户活跃度</p>
+                        <ul class="feature-list">
+                            <li>智能对话生成</li>
+                            <li>情感分析处理</li>
+                            <li>互动策略优化</li>
+                            <li>用户兴趣挖掘</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3 class="feature-title">数据分析能力</h3>
+                        <p class="feature-description">全面的数据分析，助力决策优化</p>
+                        <ul class="feature-list">
+                            <li>实时数据监控</li>
+                            <li>用户行为分析</li>
+                            <li>转化率分析</li>
+                            <li>ROI评估</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                        </div>
+                        <h3 class="feature-title">规模化运营能力</h3>
+                        <p class="feature-description">实现规模化增长，持续用户维护</p>
+                        <ul class="feature-list">
+                            <li>降低运营成本</li>
+                            <li>提升运营效率</li>
+                            <li>实现规模化增长</li>
+                            <li>持续用户维护</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="feature-title">痛点解决方案</h3>
+                        <p class="feature-description">针对性解决运营难题</p>
+                        <ul class="feature-list">
+                            <li>解决获客效率难题</li>
+                            <li>降低运营成本</li>
+                            <li>优化获客策略</li>
+                            <li>实现持续性运营</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 应用场景部分 -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-map-marker-alt"></i>
+                    应用场景
+                </h2>
+                <div class="scenarios">
+                    <div class="scenario-card">
+                        <h4>婚恋交友</h4>
+                        <ul>
+                            <li>智能用户匹配</li>
+                            <li>个性化推荐</li>
+                            <li>情感互动分析</li>
+                            <li>关系进展追踪</li>
+                        </ul>
+                    </div>
+                    <div class="scenario-card">
+                        <h4>同城聚会</h4>
+                        <ul>
+                            <li>活动精准推送</li>
+                            <li>兴趣小组匹配</li>
+                            <li>社交圈层运营</li>
+                            <li>用户活跃度提升</li>
+                        </ul>
+                    </div>
+                    <div class="scenario-card">
+                        <h4>商务伴游</h4>
+                        <ul>
+                            <li>需求精准匹配</li>
+                            <li>服务品质保障</li>
+                            <li>安全信用体系</li>
+                            <li>用户体验优化</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 目标客户部分 -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-users"></i>
+                    目标客户
+                </h2>
+                <div class="target-clients">
+                    <div class="client-card">
+                        <div class="client-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="client-title">婚恋交友</h3>
+                        <p class="client-description">需要精准匹配和用户运营的婚恋交友平台</p>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="client-title">同城聚会</h3>
+                        <p class="client-description">需要提升用户活跃度和互动效果的同城聚会平台</p>
+                    </div>
+                    <div class="client-card">
+                        <div class="client-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="client-title">商务伴游</h3>
+                        <p class="client-description">需要精准匹配和高效运营的商务伴游平台</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 数据展示部分 -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-line"></i>
+                    数据展示
+                </h2>
+                <div class="chart-container">
+                    <h3 class="chart-title">获客效果分析</h3>
+                    <p class="chart-description">AI获客系统与传统获客方式的转化效果对比</p>
+                    <div class="demo-image">
+                        <img src="../images/tantan_juhe.jpg" alt="探探AI精准获客系统获客效果分析" class="demo-screenshot">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="../js/tantan.js"></script>
+</body>
+</html> 
